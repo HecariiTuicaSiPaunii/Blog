@@ -13,7 +13,6 @@ function Init() {
   while (ind != -1) { //Parse
     var fin = txt.indexOf("-->") + 3;
     var directive = txt.substring(ind + 4, fin - 3);
-    
     if (directive.substring(0, 7).toLowerCase() == "authors" || directive.substring(0, 6).toLowerCase() == "author") { //support multi-grammar
       if (directive.substring(0, 7).toLowerCase() == "authors")
         directive = directive.substring(9).split(',');
@@ -28,13 +27,13 @@ function Init() {
       }
       newtxt += "</div>";
     }
+    txt = txt.substring(fin);
     ind = txt.indexOf("<!--");
     if (ind != -1) {
       newtxt += txt.substring(fin, ind);
     } else {
-      newtxt += txt.substring(fin);
+      newtxt += txt;
     }
-    txt = txt.substring(fin);
   }
   
   document.body.innerHTML = newtxt;
