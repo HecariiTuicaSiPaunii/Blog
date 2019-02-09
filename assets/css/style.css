@@ -1,6 +1,7 @@
 #navbar {
   overflow: hidden;
   background-color: #333;
+  white-space:nowrap;
 }
 #navbar a {
   float: left;
@@ -9,10 +10,19 @@
   text-align: center;
   padding: 14px;
   text-decoration: none;
-  margin-left: 15px;
+  margin-left: 7px;
+  margin-right: 7px;
   transition: all .1s ease-in-out;
   border-bottom: 3px solid #666;
   background-color: #333;
+}
+@media screen and (max-width: 670px){
+    #navbar a {
+        margin-left:1px;
+        margin-right:1px;
+        font-size:12px;
+        padding: 10px;
+    }
 }
 #navbar a:hover {
   transition: all .1s ease-in-out;
@@ -33,10 +43,7 @@
 .sticky + .content {
   padding-top: 60px;
 }
-::selection {
-  background: #B5E853;
-  color: #000;
-}
+
 .highlight {
  color:#d0d0d0
 }
