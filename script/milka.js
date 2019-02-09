@@ -1,6 +1,7 @@
 window.onload = function() {Init();}
 
 function Init() {
+  console.log ("Milka Templating Engine is at work!");
   var txt = document.body.innerHTML;
   var ind = txt.indexOf("<!--");
   
@@ -23,19 +24,15 @@ function Init() {
       newtxt += "Authors:";
       for (i = 0; i < directive.length; i++) {
         var author = directive[i].trim().toLowerCase();
-        console.log (author);
         newtxt += "<img class='avatar' src='/assets/images/profiles/" + author + ".png' title='" + author.charAt(0).toUpperCase() + author.slice(1) + "'/>";
       }
       newtxt += "</div>";
     }
     ind = txt.indexOf("<!--");
     if (ind != -1) {
-      console.log("Continuining " + fin + " " + ind);
       newtxt += txt.substring(fin, ind);
     } else {
-      console.log("Continuining " + fin);
       newtxt += txt.substring(fin);
-      console.log (txt.substring(fin));
     }
     txt = txt.substring(fin);
   }
