@@ -22,9 +22,9 @@ function Init() {
       newtxt += "<div style='align-items: center; display: flex; margin-bottom:15px;'>";
       newtxt += "Authors:";
       for (i = 0; i < directive.length; i++) {
-        var author = directive[i].trim();
+        var author = directive[i].trim().toLowerCase();
         console.log (author);
-        newtxt += "<img class='avatar' src='/assets/images/profiles/" + author.toLowerCase() + ".png'/>";
+        newtxt += "<img class='avatar' src='/assets/images/profiles/" + author + ".png' title='" + author.charAt(0).toUpperCase() + author.slice(1) + "'/>";
       }
       newtxt += "</div>";
     }
