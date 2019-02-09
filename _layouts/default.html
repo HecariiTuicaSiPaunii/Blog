@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <script type="text/javascript" async="" src="/script/navbar.js"></script>
 {% seo %}
   </head>
   <body>
-    <div style="background-image: url('/assets/images/RoFlag.png'); background-attachment: fixed; background-repeat: no-repeat; background-size: contain;">
+    <div onload="loadsticky()" style="background-image: url('/assets/images/RoFlag.png'); background-attachment: fixed; background-repeat: no-repeat; background-size: contain;">
       <a href="/">
         <img style="margin-top:0px; width:100%" src="/assets/images/HTsPLogo.png">
       </a>
@@ -18,7 +19,6 @@
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
       </div>
-    <script type="text/javascript" src="/script/navbar.js"></script>
     <div class="container">
       <section id="main_content">
         {{ content }}
