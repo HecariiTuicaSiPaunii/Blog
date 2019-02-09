@@ -3,7 +3,7 @@ layout: default
 ---
 
 # Welcome to the Official HTsP Blog page!
-<!--Authors: Milkdrop, Milkdrop-->
+<!--Authors: Milkdrop, littlewho, gabies, jossh, oofedup-->
 
 ## Something something content here
 
