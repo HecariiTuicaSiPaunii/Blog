@@ -6,7 +6,7 @@ var navbar = document.getElementById("navbar");
 var sticky = 0;
 function loadsticky() {sticky = header.offsetHeight;}
 function adjustNavbar() {
-  if (window.pageYOffset >= sticky)
+  if (window.pageYOffset >= sticky && window.innerWidth > 670)
     navbar.classList.add("sticky")
   else
     navbar.classList.remove("sticky");
