@@ -19,7 +19,7 @@
   border-bottom: 3px solid #B5E853;
   background-color: #111;
 }
-#navbar a:hover {
+#navbar a:active {
   outline: none;
 }
 .content {
