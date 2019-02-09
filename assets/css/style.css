@@ -35,6 +35,12 @@
 #navbar a:visited {
   outline: none;
 }
+.avatar {
+	border-radius: 50%;
+	margin-left:12px;
+	width:64px;
+	height:64px;
+}
 .content {
   padding: 16px;
 }
