@@ -1,6 +1,10 @@
 window.onscroll = function() {adjustNavbar()};
 var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
+var sticky = 0;
+
+function loadsticky() {
+  sticky = navbar.offsetTop;
+}
 
 function adjustNavbar() {
   if (window.pageYOffset >= sticky) {
