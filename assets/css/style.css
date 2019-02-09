@@ -32,6 +32,9 @@
 #navbar a:active {
   outline: none;
 }
+#navbar a:visited {
+  outline: none;
+}
 .content {
   padding: 16px;
 }
@@ -43,7 +46,10 @@
 .sticky + .content {
   padding-top: 69px;
 }
-
+::selection {
+  background: #B5E853;
+  color: #111;
+}
 .highlight {
  color:#d0d0d0
 }
