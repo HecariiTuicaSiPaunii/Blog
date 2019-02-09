@@ -18,10 +18,10 @@
 }
 @media screen and (max-width: 670px){
     #navbar a {
-        margin-left:1px;
-        margin-right:1px;
-        font-size:12px;
-        padding: 10px;
+        margin-left:2px;
+        margin-right:2px;
+        font-size:14px;
+        padding: 8px;
     }
 }
 #navbar a:hover {
