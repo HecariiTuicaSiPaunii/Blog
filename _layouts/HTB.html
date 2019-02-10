@@ -4,16 +4,18 @@ layout: default
 
 <script type="text/javascript" src="/script/aes.js"></script>
 <script>
-		function EncryptCTR (text, key) {
-			var textBytes = aesjs.utils.utf8.toBytes(text);
-			var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
-			var encryptedBytes = aesCtr.encrypt(textBytes);
-			return aesjs.utils.hex.fromBytes(encryptedBytes);
-		}
+	function EncryptCTR (text, key) {
+ 		var textBytes = aesjs.utils.utf8.toBytes(text);
+ 		var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
+ 		var encryptedBytes = aesCtr.encrypt(textBytes);
+  		return aesjs.utils.hex.fromBytes(encryptedBytes);
+ 	}
 		
-		function DecryptCTR (bytes, key) {
-			var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
-			var decryptedBytes = aesCtr.decrypt(bytes);
-			return aesjs.utils.utf8.fromBytes(decryptedBytes);
-		}
+ 	function DecryptCTR (bytes, key) {
+ 		var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
+ 		var decryptedBytes = aesCtr.decrypt(bytes);
+ 		return aesjs.utils.utf8.fromBytes(decryptedBytes);
+ 	}
 </script>
+
+{{ content }}
