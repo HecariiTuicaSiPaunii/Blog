@@ -13,6 +13,7 @@ layout: HTB
 
 </p>
 <!--Markdown Parsing brought by https://github.com/jbt/markdown-editor-->
+
 <script src="/script/lib/markdown-it.js"></script>
 <script src="/script/lib/markdown-it-footnote.js"></script>
 <script src="/script/lib/highlight.pack.js"></script>
@@ -47,10 +48,12 @@ function ComputeMarkdown(val) {
     val = val.replace(/<equation>((.*?\n)*?.*?)<\/equation>/ig, function(a, b) {
         return '<img src="http://latex.codecogs.com/png.latex?' + encodeURIComponent(b) + '" />';
     });
+	console.log("rendering...");
     return md.render(val);
 }
 
 function PrintDecrypt() {
+	console.log("executing...");
 	var keytxt = document.getElementById("encryptionKey").value;
 	if (keytxt.length != 32) {
 		alert("Key Length must be 32 Characters.");
