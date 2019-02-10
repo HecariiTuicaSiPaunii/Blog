@@ -28,7 +28,7 @@ function Init() {
       newtxt += "</div>";
     } else {
       newtxt += txt.substring(ind, fin); 
-      console.log("ADDED EMPTY DIRECTIVE": " + txt.substring(ind, fin));
+      console.log("ADDED EMPTY DIRECTIVE: " + txt.substring(ind, fin));
     }
     
     txt = txt.substring(fin);
