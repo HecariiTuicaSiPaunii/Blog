@@ -9,6 +9,8 @@ layout: HTB
     In order to view this encrypted content, you will need to use the flag of the challenge.
     For HackTheBox Machine Write-Ups, the flag is in <b>root.txt</b>
 </p>
+<!--Decryption brought by https://github.com/jbt/markdown-editor-->
+
 <p style="font-size:24px; text-align:center">
     Decryption Key:
     <input type="text" id="decryptionKey" value="0123456789abcdef0123456789abcdef" style="display: inline; width:240px; background:#111; border:1px solid #eaeaea; color:#B5E853">
