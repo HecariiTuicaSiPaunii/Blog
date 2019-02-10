@@ -59,11 +59,10 @@
 .redtxt {
   color: #E55252;
 }
-redtxt::selection {
+.redtxt::selection {
   background: #E55252;
   color: #111;
 }
-
 .highlight {
  color:#d0d0d0
 }
@@ -342,8 +341,11 @@ hr {
  background:url("../images/blacktocat.png") 0 0 no-repeat
 }
 a {
- color:#63c0f5;
+ color:#aeaeae;
  text-shadow:0 0 5px rgba(104,182,255,0.5)
+}
+a:hover {
+ color:#B5E853;
 }
 .cf:before,
 .cf:after {
