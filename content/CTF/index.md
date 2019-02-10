@@ -1,6 +1,6 @@
 # CTF Write-Ups:
 
-### 2019:
+## 2019:
 
 * * *
 
@@ -9,7 +9,7 @@
     - [Attack Defence](./2019-Evlz/Attack-Defence.md)
     - [Chinese Whisper](./2019-Evlz/Chinese-Whisper.md)
 
-### 2018:
+## 2018:
 
 * * *
 
