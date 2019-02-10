@@ -8,6 +8,8 @@
   - PWN:
     - [Attack Defence](./2019-Evlz/Attack-Defence.md)
     - [Chinese Whisper](./2019-Evlz/Chinese-Whisper.md)
+  - Web:
+    - [ManyFiles](./2019-Evlz/ManyFiles.md)
 
 ## 2018:
 
