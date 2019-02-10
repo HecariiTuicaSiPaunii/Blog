@@ -1,12 +1,18 @@
 # CTF Write-Ups:
 
-## 2019:
+### 2019:
+
+* * *
+
 - Evlz:
   - PWN:
     - [Attack Defence](./2019-Evlz/Attack-Defence.md)
     - [Chinese Whisper](./2019-Evlz/Chinese-Whisper.md)
 
-## 2018:
+### 2018:
+
+* * *
+
 - Timisoara Finals:
   - Crypto:
     - [Recap](./2018-TimCTF-Finals/Recap-Recess.md)
