@@ -12,21 +12,60 @@ layout: HTB
 <p id="output">
 
 </p>
+<script src="/script/lib/markdown-it.js"></script>
+<script src="/script/lib/markdown-it-footnote.js"></script>
+<script src="/script/lib/highlight.pack.js"></script>
+<script src="/script/lib/emojify.js"></script>
+<script src="/script/codemirror/lib/codemirror.js"></script>
+<script src="/script/codemirror/xml.js"></script>
+<script src="/script/codemirror/gfm.js"></script>
+<script src="/script/codemirror/javascript.js"></script>
+<script src="/script/codemirror/css.js"></script>
+<script src="/script/codemirror/htmlmixed.js"></script>
+<script src="/script/codemirror/lib/util/continuelist.js"></script>
 <script>
-	function PrintDecrypt() {
-		var keytxt = document.getElementById("encryptionKey").value;
-		if (keytxt.length != 32) {
-			alert("Key Length must be 32 Characters.");
-			return;
-		}
-		var key = [];
-		for (i = 0; i < keytxt.length; i++)
-			key.push(keytxt.charCodeAt(i));
-		
-		var txt = "<!--Valid Decryption-->\n" + document.getElementById("inText").value;
-		var CryptText = EncryptCTR(txt, key);
-		
-		document.getElementById("output").innerHTML = "<h2>Output:</h2>\n<p style='word-wrap: break-word;'>" + CryptText + "</p>";
-		console.log("Text Decrypts as: " + DecryptCTR(aesjs.utils.hex.toBytes(CryptText), key));
+var languageOverrides = {
+    js: 'javascript',
+    html: 'xml'
+};
+
+var md = markdownit({
+        html: true,
+        highlight: function(code, lang) {
+            if (languageOverrides[lang]) lang = languageOverrides[lang];
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(lang, code).value;
+                } catch (e) {}
+            }
+            return '';
+        }
+}).use(markdownitFootnote);
+	
+function ComputeMarkdown(val) {
+    val = val.replace(/<equation>((.*?\n)*?.*?)<\/equation>/ig, function(a, b) {
+        return '<img src="http://latex.codecogs.com/png.latex?' + encodeURIComponent(b) + '" />';
+    });
+
+    var out = document.getElementById('out');
+    var old = out.cloneNode(true);
+    return md.render(val);
+}
+
+function PrintDecrypt() {
+	var keytxt = document.getElementById("encryptionKey").value;
+	if (keytxt.length != 32) {
+		alert("Key Length must be 32 Characters.");
+		return;
 	}
+	var key = [];
+	for (i = 0; i < keytxt.length; i++)
+		key.push(keytxt.charCodeAt(i));
+		
+	var txt = "<!--Valid Decryption-->\n" + ComputeMarkdown(document.getElementById("inText").value);
+	var CryptText = EncryptCTR(txt, key);
+		
+	document.getElementById("output").innerHTML = "<h2>Output:</h2>\n<p style='word-wrap: break-word;'>" + CryptText + "</p>";
+	console.log("Text Decrypts as: " + DecryptCTR(aesjs.utils.hex.toBytes(CryptText), key));
+}
 </script>
