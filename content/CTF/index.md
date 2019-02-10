@@ -5,8 +5,9 @@
 * * *
 
 - Evlz:
-  - PWN:
+  - Pwn:
     - [Attack Defence](./2019-Evlz/Attack-Defence.md)
+  - Crypto:
     - [Chinese Whisper](./2019-Evlz/Chinese-Whisper.md)
   - Web:
     - [ManyFiles](./2019-Evlz/ManyFiles.md)
@@ -23,12 +24,14 @@
     - [Recap](./2018-TimCTF-Finals/Recap-Recess.md)
     - [Recess](./2018-TimCTF-Finals/Recap-Recess.md)
 - TJCTF:
-  - Crypto:
+  - Reverse:
+    - [Python Reversing](./2018-TJCTF/Python-Reversing.md)
     - [Bad Cipher](./2018-TJCTF/Bad-Cipher.md)
+  - Misc:
+    - [Speedy Security](./2018-TJCTF/Speedy-Security.md)
+  - Crypto:
     - [Caesar's Complication](./2018-TJCTF/Caesars-Complication.md)
     - [Nothing But Everything](./2018-TJCTF/Nothing-But-Everything.md)
-    - [Python Reversing](./2018-TJCTF/Python-Reversing.md)
-    - [Speedy Security](./2018-TJCTF/Speedy-Security.md)
     - [Sarah's Cryptosystem](./2018-TJCTF/Sarahs-Cryptosystem.md)
 - Tokyo Westerners:
   - Crypto:
