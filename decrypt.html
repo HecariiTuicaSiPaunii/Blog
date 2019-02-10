@@ -9,8 +9,7 @@ layout: HTB
     In order to view this encrypted content, you will need to use the flag of the challenge.
     For HackTheBox Machine Write-Ups, the flag is in <b>root.txt</b>
 </p>
-<!--Decryption brought by https://github.com/jbt/markdown-editor-->
-
+<!--On-The-Fly MD Decryption brought by https://github.com/jbt/markdown-editor-->
 <p style="font-size:24px; text-align:center">
     Decryption Key:
     <input type="text" id="decryptionKey" value="" style="display: inline; width:240px; background:#111; border:1px solid #eaeaea; color:#B5E853">
@@ -20,53 +19,100 @@ layout: HTB
 <p id="status" style="text-align:center">
 	
 </p>
-
 </div>
+
+<script src="/script/lib/markdown-it.js"></script>
+<script src="/script/lib/markdown-it-footnote.js"></script>
+<script src="/script/lib/highlight.pack.js"></script>
+<script src="/script/lib/emojify.js"></script>
+<script src="/script/codemirror/lib/codemirror.js"></script>
+<script src="/script/codemirror/xml.js"></script>
+<script src="/script/codemirror/gfm.js"></script>
+<script src="/script/codemirror/javascript.js"></script>
+<script src="/script/codemirror/css.js"></script>
+<script src="/script/codemirror/htmlmixed.js"></script>
+<script src="/script/codemirror/lib/util/continuelist.js"></script>
 <script>
-	function Decrypt() {
-		var keytxt = document.getElementById("decryptionKey").value;
-		if (keytxt.length != 32) {
-			alert("Key Length must be 32 Characters.");
-			return;
-		}
-		
-		var key = [];
-		for (i = 0; i < keytxt.length; i++)
-			key.push(keytxt.charCodeAt(i));
-			
-		var link = window.location.href;
-		var indx = link.indexOf("?file=");
-		if (indx == -1) {
-			alert("Nothing to decrypt!");
-			return;
-		}
-		var file = link.substring(indx + 6);
-		
-		var xhr = new XMLHttpRequest();
-		xhr.open("GET", file, false);
-		document.getElementById("status").innerHTML = "Downloading File...";
-		xhr.send(null);
-		if (xhr.status != 200) {
-			alert("File not found!");
-			document.getElementById("status").innerHTML = "";
-			return;
-		}
-		var resp = xhr.responseText;
-		
-		document.getElementById("status").innerHTML = "Decrypting...";
-		
-		var txt = aesjs.utils.hex.toBytes(resp);
-		if (isNaN(txt[txt.length - 1]))
-			txt.pop();
-		
-		var CryptText = DecryptCTR(txt, key);
-		
-		if (CryptText.substring(0, 23) != "<!--Valid Decryption-->") {
-			alert("Invalid Key.");
-			document.getElementById("status").innerHTML = "";
-		} else {
-			document.getElementById("output").innerHTML = CryptText;
-		}
-		Init();
+var languageOverrides = {
+    js: 'javascript',
+    html: 'xml'
+};
+
+var md = markdownit({
+        html: true,
+        highlight: function(code, lang) {
+            if (languageOverrides[lang]) lang = languageOverrides[lang];
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return hljs.highlight(lang, code).value;
+                } catch (e) {}
+            }
+            return '';
+        }
+}).use(markdownitFootnote);
+	
+function ComputeMarkdown(val) {
+    val = val.replace(/<equation>((.*?\n)*?.*?)<\/equation>/ig, function(a, b) {
+        return '<img src="http://latex.codecogs.com/png.latex?' + encodeURIComponent(b) + '" />';
+    });
+    return md.render(val);
+}
+
+function Decrypt() {
+	var keytxt = document.getElementById("decryptionKey").value;
+	if (keytxt.length != 32) {
+		alert("Key Length must be 32 Characters.");
+		return;
 	}
+		
+	var key = [];
+	for (i = 0; i < keytxt.length; i++)
+		key.push(keytxt.charCodeAt(i));
+			
+	var link = window.location.href;
+	var indx = link.indexOf("?file=");
+	if (indx == -1) {
+		alert("Nothing to decrypt!");
+		return;
+	}
+	var file = link.substring(indx + 6);
+		
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", file, false);
+	document.getElementById("status").innerHTML = "Downloading File...";
+	xhr.send(null);
+	if (xhr.status != 200) {
+		alert("File not found!");
+		document.getElementById("status").innerHTML = "";
+		return;
+	}
+	var resp = xhr.responseText;
+		
+	document.getElementById("status").innerHTML = "Decrypting...";
+		
+	var txt = aesjs.utils.hex.toBytes(resp);
+	if (isNaN(txt[txt.length - 1]))
+		txt.pop();
+		
+	var CryptText = DecryptCTR(txt, key);
+		
+	if (CryptText.substring(0, 23) != "<!--Valid Decryption-->") {
+		alert("Invalid Key.");
+		document.getElementById("status").innerHTML = "";
+	} else {
+		document.getElementById("output").innerHTML = ComputeMarkdown(CryptText);
+		if (link[link.length - 1] == '#') {
+			var data = CryptText;
+			var bytes = new Array(data.length);
+			for (var i = 0; i < data.length; i++) {
+				bytes[i] = data.charCodeAt(i);
+			}
+			bytes = new Uint8Array(bytes);
+			var blob = new Blob([bytes]);
+			window.location = URL.createObjectURL(blob);
+		}
+	}
+	
+	Init();
+}
 </script>
