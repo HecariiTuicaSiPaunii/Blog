@@ -56,7 +56,7 @@
   background: #B5E853;
   color: #111;
 }
-redtxt {
+.redtxt {
   color: #E55252;
 }
 redtxt::selection {
