@@ -9,7 +9,7 @@
 print ("here's some python code")
 ```
 
-Look _italics_, __bold__, ~~strinkes~~! </br>
+Look _italics_, __bold__, ~~strinkes~~! <br>
 
 >here's a quote
 
