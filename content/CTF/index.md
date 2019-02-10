@@ -36,3 +36,6 @@
 - ASIS Finals:
   - Crypto:
     - [John Bull](./2018-ASIS-Finals/John-Bull.md)
+- Google Quals:
+  - Reverse:
+    - [Shall We Play A Game?](./2018-GoogleCTF-Quals/Shall-We-Play-A-Game.md)
