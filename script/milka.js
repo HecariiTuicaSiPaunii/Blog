@@ -33,6 +33,8 @@ function Init() {
       newtxt += txt.substring(fin, ind);
     } else {
       newtxt += txt;
+      console.log(fin);
+      console.log(txt);
     }
   }
   
