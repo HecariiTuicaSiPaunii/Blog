@@ -55,11 +55,11 @@ layout: HTB
 		
 		document.getElementById("status").innerHTML = "Decrypting...";
 		
-		console.log(resp);
-		console.log(aesjs.utils.hex.toBytes(resp));
 		var txt = aesjs.utils.hex.toBytes(resp);
+		if (isNaN(txt[txt.length - 1]))
+			txt.pop();
+		
 		var CryptText = DecryptCTR(txt, key);
-		console.log (CryptText);
 		
 		if (CryptText.substring(0, 23) != "<!--Valid Decryption-->") {
 			alert("Invalid Key.");
