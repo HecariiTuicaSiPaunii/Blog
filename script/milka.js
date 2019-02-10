@@ -28,17 +28,14 @@ function Init() {
       newtxt += "</div>";
     } else {
       newtxt += txt.substring(ind, fin); 
-      console.log("ADDED EMPTY DIRECTIVE: " + txt.substring(ind, fin));
     }
     
     txt = txt.substring(fin);
     ind = txt.indexOf("<!--");
     if (ind != -1) {
-      newtxt += txt.substring(fin, ind);
-      console.log(txt.substring(fin, ind));
+      newtxt += txt.substring(0, ind);
     } else {
       newtxt += txt;
-      console.log("ADDED END: " + txt);
     }
   }
   
