@@ -26,15 +26,19 @@ function Init() {
         newtxt += "<img class='avatar' src='/assets/images/profiles/" + author + ".png' title='" + author.charAt(0).toUpperCase() + author.slice(1) + "'/>";
       }
       newtxt += "</div>";
+    } else {
+      newtxt += txt.substring(ind, fin); 
+      console.log("ADDED EMPTY DIRECTIVE": " + txt.substring(ind, fin));
     }
+    
     txt = txt.substring(fin);
     ind = txt.indexOf("<!--");
     if (ind != -1) {
       newtxt += txt.substring(fin, ind);
+      console.log(txt.substring(fin, ind));
     } else {
       newtxt += txt;
-      console.log(fin);
-      console.log(txt);
+      console.log("ADDED END: " + txt);
     }
   }
   
