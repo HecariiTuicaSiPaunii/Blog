@@ -28,7 +28,7 @@ layout: HTB
 			alert("File not found!");
 			return;
 		}
-		console.log(xhr.responseText);
+		var resp = xhr.responseText;
 		
 		var keytxt = document.getElementById("decryptionKey").value;
 		if (keytxt.length != 32) {
@@ -39,7 +39,11 @@ layout: HTB
 		for (i = 0; i < keytxt.length; i++)
 			key.push(keytxt.charCodeAt(i));
 		
-		var CryptText = DecryptCTR(xhr.responseText, key);
+		var txt = [];
+		for (i = 0; i < resp.length; i++)
+			txt.push(resp.charCodeAt(i));
+			
+		var CryptText = DecryptCTR(txt, key);
 		console.log (CryptText);
 		
 		if (CryptText.substring(0, 23) != "<!--Valid Decryption-->") {
