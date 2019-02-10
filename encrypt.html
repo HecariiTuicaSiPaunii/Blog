@@ -9,10 +9,6 @@ layout: HTB
 </p>
 <textarea id="inText" style="width: 100%; min-height: 320px; resize: vertical; height: 92px; color: white; background: rgb(17, 17, 17) none repeat scroll 0% 0%; border: 2px dashed rgb(234, 234, 234);">Enter text here!</textarea>
 
-<p id="output">
-
-</p>
-
 <script src="/script/lib/markdown-it.js"></script>
 <script src="/script/lib/markdown-it-footnote.js"></script>
 <script src="/script/lib/highlight.pack.js"></script>
@@ -48,12 +44,10 @@ function ComputeMarkdown(val) {
     val = val.replace(/<equation>((.*?\n)*?.*?)<\/equation>/ig, function(a, b) {
         return '<img src="http://latex.codecogs.com/png.latex?' + encodeURIComponent(b) + '" />';
     });
-	console.log("rendering...");
     return md.render(val);
 }
 
 function PrintDecrypt() {
-	console.log("executing...");
 	var keytxt = document.getElementById("encryptionKey").value;
 	if (keytxt.length != 32) {
 		alert("Key Length must be 32 Characters.");
@@ -65,8 +59,16 @@ function PrintDecrypt() {
 		
 	var txt = "<!--Valid Decryption-->\n" + ComputeMarkdown(document.getElementById("inText").value);
 	var CryptText = EncryptCTR(txt, key);
-		
+	
+	var data = CryptText;
+	var bytes = new Array(data.length);
+	for (var i = 0; i < data.length; i++) {
+	    bytes[i] = data.charCodeAt(i);
+	}
+	bytes = new Uint8Array(bytes);
+	var blob = new Blob([bytes]);
+	window.location = URL.createObjectURL(blob);
+	
 	document.getElementById("output").innerHTML = "<h2>Output:</h2>\n<p style='word-wrap: break-word;'>" + CryptText + "</p>";
-	console.log("Text Decrypts as: " + DecryptCTR(aesjs.utils.hex.toBytes(CryptText), key));
 }
 </script>
