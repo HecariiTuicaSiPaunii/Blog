@@ -9,9 +9,24 @@ layout: HTB
     <input type="text" id="decryptionKey" value="0123456789abcdef0123456789abcdef" style="display: inline; width:240px; background:#111; border:1px solid #eaeaea; color:#B5E853">
     <input style="display: inline;" type="submit" value="Decrypt" onclick="Decrypt()">
 </p>
+
+<p id="status" style="text-align:center">
+	
+</p>
+
 </p>
 <script>
 	function Decrypt() {
+		var keytxt = document.getElementById("decryptionKey").value;
+		if (keytxt.length != 32) {
+			alert("Key Length must be 32 Characters.");
+			return;
+		}
+		
+		var key = [];
+		for (i = 0; i < keytxt.length; i++)
+			key.push(keytxt.charCodeAt(i));
+			
 		var link = window.location.href;
 		var indx = link.indexOf("?file=");
 		if (indx == -1) {
@@ -22,32 +37,27 @@ layout: HTB
 		
 		var xhr = new XMLHttpRequest();
 		xhr.open("GET", file, false);
+		xhr.overrideMimeType('text\/plain; charset=x-user-defined');
 		console.log("Downloading File...");
-		xhr.send();
+		xhr.send(null);
 		if (xhr.status != 200) {
 			alert("File not found!");
 			return;
 		}
 		var resp = xhr.responseText;
 		
-		var keytxt = document.getElementById("decryptionKey").value;
-		if (keytxt.length != 32) {
-			alert("Key Length must be 32 Characters.");
-			return;
-		}
-		var key = [];
-		for (i = 0; i < keytxt.length; i++)
-			key.push(keytxt.charCodeAt(i));
+		document.getElementById("status").innerHTML = "Decrypting...";
 		
 		var txt = [];
 		for (i = 0; i < resp.length; i++)
-			txt.push(resp.charCodeAt(i));
+			txt.push(resp.charCodeAt(i) & 0xff);
 			
 		var CryptText = DecryptCTR(txt, key);
 		console.log (CryptText);
 		
 		if (CryptText.substring(0, 23) != "<!--Valid Decryption-->") {
 			alert("Invalid Key.");
+			document.getElementById("status").innerHTML = "";
 		} else {
 			alert("OK.");
 		}
