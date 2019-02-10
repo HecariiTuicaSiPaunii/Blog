@@ -37,6 +37,7 @@
         // It's an array; check it is a valid representation of a byte
         if (Array.isArray(arg)) {
             if (!checkInts(arg)) {
+				console.log (arg);
                 throw new Error('Array contains invalid value: ' + arg);
             }
 
