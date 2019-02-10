@@ -47,9 +47,6 @@ function ComputeMarkdown(val) {
     val = val.replace(/<equation>((.*?\n)*?.*?)<\/equation>/ig, function(a, b) {
         return '<img src="http://latex.codecogs.com/png.latex?' + encodeURIComponent(b) + '" />';
     });
-
-    var out = document.getElementById('out');
-    var old = out.cloneNode(true);
     return md.render(val);
 }
 
