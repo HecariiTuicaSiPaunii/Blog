@@ -341,11 +341,11 @@ hr {
  background:url("../images/blacktocat.png") 0 0 no-repeat
 }
 a {
- color:#aeaeae;
- text-shadow:0 0 5px rgba(104,182,255,0.5)
+ color:#E59C52;
+ text-shadow:0 0 4px rgba(229,156,82,0.5)
 }
 a:hover {
- color:#B5E853;
+ color:#E2882D;
 }
 .cf:before,
 .cf:after {
