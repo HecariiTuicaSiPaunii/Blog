@@ -2,9 +2,32 @@
 layout: HTB
 ---
 
-<p style="font-size:24px">
+<p style="font-size:24px; color:#B5E853">
     Key:
-    <input type="text" name="key" id="encryptionKey" value="0123456789abcdef0123456789abcdef" style="display: inline; width:200px; color: #B5E853; background:#111; border:1px solid #eaeaea">
-    <input style="display: inline;" type="submit" name="key" value="Encrypt!">
+    <input type="text" id="encryptionKey" value="0123456789abcdef0123456789abcdef" style="display: inline; width:240px; color: #B5E853; background:#111; border:1px solid #eaeaea">
+    <input style="display: inline;" type="submit" value="Encrypt!" onclick="PrintDecrypt()">
 </p>
-<textarea style="width: 100%; min-height: 320px; resize: vertical; height: 92px; color: white; background: rgb(17, 17, 17) none repeat scroll 0% 0%; border: 2px dashed rgb(234, 234, 234);">Enter text here!</textarea>
+<textarea id="inText" style="width: 100%; min-height: 320px; resize: vertical; height: 92px; color: white; background: rgb(17, 17, 17) none repeat scroll 0% 0%; border: 2px dashed rgb(234, 234, 234);">Enter text here!</textarea>
+
+<p id="output">
+
+</p>
+<script>
+	var decrypted
+	function PrintDecrypt() {
+		var keytxt = document.getElementById("encryptionKey").value;
+		if (keytxt.length != 32) {
+			alert("Key Length must be 32 Characters.");
+			return;
+		}
+		var key = [];
+		for (i = 0; i < keytxt.length; i++)
+			key.push(keytxt.charCodeAt(i));
+		
+		var txt = "<!--Valid Decryption-->\n" + document.getElementById("inText").value;
+		var CryptText = EncryptCTR(txt, key);
+		
+		document.getElementById("output").innerText = "<h2>Output:</h2>\n" + CryptText;
+		console.log(DecryptCTR(aesjs.utils.hex.toBytes(CryptText), key));
+	}
+</script>
