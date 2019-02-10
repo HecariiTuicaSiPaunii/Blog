@@ -1,0 +1,32 @@
+---
+layout: HTB
+---
+
+<p id="output">
+<h1 style="text-align:center">The file you are trying to view is <div class="red">🔒 Encrypted 🔒</div></h1>
+<p style="font-size:24px; color:#B5E853">
+    Decryption Key:
+    <input type="text" id="encryptionKey" value="0123456789abcdef0123456789abcdef" style="display: inline; width:240px; background:#111; border:1px solid #eaeaea; color:#B5E853">
+    <input style="display: inline;" type="submit" value="Decrypt" onclick="PrintDecrypt()">
+</p>
+<textarea id="inText" style="width: 100%; min-height: 320px; resize: vertical; height: 92px; color: white; background: rgb(17, 17, 17) none repeat scroll 0% 0%; border: 2px dashed rgb(234, 234, 234);">Enter text here!</textarea>
+
+</p>
+<script>
+	function PrintDecrypt() {
+		var keytxt = document.getElementById("encryptionKey").value;
+		if (keytxt.length != 32) {
+			alert("Key Length must be 32 Characters.");
+			return;
+		}
+		var key = [];
+		for (i = 0; i < keytxt.length; i++)
+			key.push(keytxt.charCodeAt(i));
+		
+		var txt = "<!--Valid Decryption-->\n" + document.getElementById("inText").value;
+		var CryptText = EncryptCTR(txt, key);
+		
+		document.getElementById("output").innerHTML = "<h2>Output:</h2>\n<p style='word-wrap: break-word;'>" + CryptText + "</p>";
+		console.log("Text Decrypts as: " + DecryptCTR(aesjs.utils.hex.toBytes(CryptText), key));
+	}
+</script>
