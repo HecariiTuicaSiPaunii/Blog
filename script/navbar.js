@@ -8,6 +8,6 @@ function adjustNavbar() {
   else
     navbar.classList.remove("sticky");
 }
-window.onscroll = function() {adjustNavbar()};
-window.onresize = function() {loadsticky()};
-window.onload = function() {loadsticky(); adjustNavbar();};
+//window.onscroll = function() {adjustNavbar()};
+//window.onresize = function() {loadsticky()};
+//window.onload = function() {loadsticky(); adjustNavbar();};
