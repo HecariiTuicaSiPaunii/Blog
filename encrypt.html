@@ -27,8 +27,7 @@ layout: HTB
 		var txt = "<!--Valid Decryption-->\n" + document.getElementById("inText").value;
 		var CryptText = EncryptCTR(txt, key);
 		
-		document.getElementById("output").innerHTML = "<h2>Output:</h2>\n";
-		document.getElementById("output").innerText	+= CryptText;
+		document.getElementById("output").innerHTML = "<h2>Output:</h2>" + CryptText;
 		console.log(DecryptCTR(aesjs.utils.hex.toBytes(CryptText), key));
 	}
 </script>
