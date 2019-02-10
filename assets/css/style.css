@@ -56,6 +56,14 @@
   background: #B5E853;
   color: #111;
 }
+redtxt {
+  color: #E55252;
+}
+redtxt::selection {
+  background: #E55252;
+  color: #111;
+}
+
 .highlight {
  color:#d0d0d0
 }
