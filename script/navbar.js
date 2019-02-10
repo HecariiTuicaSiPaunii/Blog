@@ -1,6 +1,3 @@
-window.onscroll = function() {adjustNavbar()};
-window.onresize = function() {loadsticky()};
-window.onload = function() {loadsticky()};
 var header = document.getElementById("header");
 var navbar = document.getElementById("navbar");
 var sticky = 0;
@@ -11,3 +8,6 @@ function adjustNavbar() {
   else
     navbar.classList.remove("sticky");
 }
+window.onscroll = function() {adjustNavbar()};
+window.onresize = function() {loadsticky()};
+window.onload = function() {loadsticky(); adjustNavbar();};
