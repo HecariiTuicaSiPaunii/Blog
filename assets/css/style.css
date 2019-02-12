@@ -44,10 +44,10 @@
 .large-avatar {
 	float:left;
 	border-radius:50%;
-	height:220px;
-	width:220px;
-	margin-top:18px;
-	margin-left:18px;
+	height:22%;
+	width:22%;
+	margin-top:1.8%;
+	margin-left:1.8%;
 }
 .card {
 	display:block;
