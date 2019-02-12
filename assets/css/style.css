@@ -41,6 +41,43 @@
 	width:64px;
 	height:64px;
 }
+.large-avatar {
+	float:left;
+	border-radius:50%;
+	height:220px;
+	width:220px;
+	margin-top:18px;
+	margin-left:18px;
+}
+.card {
+	display:block;
+	background-color:rgba(0,0,0,0.9);
+	border-radius:10px;
+	border:1px solid rgba(255,255,255,0.15);
+	height:256px;
+}
+.pwn {
+	color:#E91E63;
+}
+.rev {
+	color:#3498DB;
+}
+.crypto {
+	color:#F1C40F;
+}
+.web {
+	color:#2ECC71;
+}
+.pentest {
+	color:#00CFDF;
+}
+.foren {
+	color:#9A59B5;
+}
+.misc {
+	color:#C27C0E;
+}
+
 .content {
   padding: 16px;
 }
