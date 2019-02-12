@@ -48,13 +48,13 @@
 	width:22%;
 	margin-top:1.8%;
 	margin-left:1.8%;
+	margin-bottom:1.8%;
 }
 .card {
-	display:block;
+	display:inline-block;
 	background-color:rgba(0,0,0,0.9);
 	border-radius:10px;
 	border:1px solid rgba(255,255,255,0.15);
-	min-height:25.6%;
 }
 .pwn {
 	color:#E91E63;
