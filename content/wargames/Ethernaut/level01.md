@@ -1,4 +1,4 @@
-## Level 01 - Fallback - Write-Up
+## Ethernaut Level 01 - Fallback - Write-Up
 <!--Authors: OofedUp-->
 
 Difficulty: 1/10
