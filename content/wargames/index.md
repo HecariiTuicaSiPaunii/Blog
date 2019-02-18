@@ -4,4 +4,4 @@
 
 * * *
 
-- [Level 00 - Hello Ethernaut](./level00.md)
+- [Level 00 - Hello Ethernaut](./Ethernaut/level00.md)
