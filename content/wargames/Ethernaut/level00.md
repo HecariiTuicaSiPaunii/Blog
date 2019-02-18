@@ -1,4 +1,4 @@
-## Level 00 - Hello Ethernaut - Write-Up
+## Ethernaut Level 00 - Hello Ethernaut - Write-Up
 <!--Authors: OofedUp-->
 
 Difficulty: 0/10
