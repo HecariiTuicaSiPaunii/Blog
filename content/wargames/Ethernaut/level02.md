@@ -1,4 +1,4 @@
-## Level 02 - Fallout - Write-Up
+## Ethernaut Level 02 - Fallout - Write-Up
 <!--Authors: OofedUp-->
 
 Difficulty: 2/10
