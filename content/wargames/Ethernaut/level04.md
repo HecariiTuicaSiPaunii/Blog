@@ -25,7 +25,7 @@ contract Telephone {
 }
 ```
 
-We just need to call the `changeOwner()` function from a contract, since `tx.origin` does not detect the sender address if it is coming from a contract. We will use [Remix](https://remix.ethereum.org) where we can create the following contract:
+We just need to call the `changeOwner()` function from a contract, since `tx.origin` does not detect the sender address if it is coming from a contract (`tx.origin` detects the address of the chain's start. In this case, it was my address, not the contract's, since I deployed it). We will use [Remix](https://remix.ethereum.org) where we can create the following contract:
 
 ```javascript
 pragma solidity ^0.4.18;
