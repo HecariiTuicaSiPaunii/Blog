@@ -10,3 +10,4 @@
 - [Level 03 - Coin Flip](./Ethernaut/level03.md)
 - [Level 04 - Telephone](./Ethernaut/level04.md)
 - [Level 05 - Token](./Ethernaut/level05.md)
+- [Level 06 - Delegation](./Ethernaut/level06.md)
