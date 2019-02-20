@@ -12,3 +12,4 @@
 - [Level 05 - Token](./Ethernaut/level05.md)
 - [Level 06 - Delegation](./Ethernaut/level06.md)
 - [Level 07 - Force](./Ethernaut/level07.md)
+- [Level 08 - Vault](./Ethernaut/level08.md)
