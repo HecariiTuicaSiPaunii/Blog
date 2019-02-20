@@ -52,7 +52,7 @@ interface King{
 
 contract KingForever{
     King game;
-    address target = 0x98f6e460cb28479dcbcf8a2fc40a28d260db486b;
+    address target = ADDR_OF_INSTANCE_HERE;
     address public owner;
 
     function KingForever() payable{
