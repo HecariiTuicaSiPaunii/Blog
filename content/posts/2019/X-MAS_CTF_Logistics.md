@@ -13,7 +13,7 @@ We had two Vultr High-Frequency Compute servers allocated for the contest, one w
 The actual competition load was about as follows:
 - **250,000 daily requests** for the entire week, peaking up at **700,000 requests during the week-end.** Cloudflare has helped us a lot in caching and speeding up the platform considerably:
 
-![Cloudflare](/assets/images/posts/X-MAS_CTF_Logistics/cloudflare.png =580x)
+![Cloudflare](/assets/images/posts/X-MAS_CTF_Logistics/cloudflare.png)
 
 - A median of **220 open sockets** to our challenge server during the entire week.
 
